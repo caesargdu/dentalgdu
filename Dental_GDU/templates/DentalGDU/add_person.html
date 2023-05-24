@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  h2Add Personh2
+  form method=post
+    {% csrf_token %}
+    {{ form.as_p }}
+    button type=submitAddbutton
+  form
+{% endblock %}

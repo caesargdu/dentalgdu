@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="{% url 'add_note' %}">
+    {% csrf_token %}
+    <label for="person">Select a patient:</label>
+    <select name="person_id" id="person">
+        {% for person in persons %}
+            <option value="{{ person.id }}">{{ person.nume }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label for="content">Additional notes:</label>
+    <textarea name="content" id="content"></textarea>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
